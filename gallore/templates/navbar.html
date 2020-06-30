@@ -1,0 +1,36 @@
+<nav class="navbar navbar-dark bg-dark">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand font-weight-bold" href="{% url 'gallery' %}">Gallery</a>
+    </div>
+    <!-- Adding a search form  -->
+
+    <div class="col-sm-4 col-md-4 navbar-right">
+      <form action="{% url 'search' %}" class="navbar-form" role="search">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Search Category" name="category">
+          <div class="input-group-btn">
+            <button class="btn btn-default" type="submit"><i class="fas fa-search"></i></button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+  </div>
+</nav>
+
+<br>
+
+<div class="dropdown">
+  <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    locations
+</button>
+<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+  {%for location in locations %}
+<!--  <a href="{% url 'location' location.id %}">{{location}}</a> -->
+  <a class="dropdown-item" href="{% url 'location' location.id %}">{{location}}</a>
+  {% endfor %}
+   </div>
+</div>
+
+<br>
